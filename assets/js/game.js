@@ -9,6 +9,25 @@ var playerHealth = 100;
 var playerAttack = 10;
 var playerMoney = 10;
 
+// function to set name
+var getPlayerName = function() {
+  var name = "";
+
+  while (name === "" || name === null){
+    name = prompt("What is your robot's name?");
+  }
+  
+  console.log("Your robot's name is " + name);
+  return name;
+  };
+
+/* Game Information / variables */
+var playerInfo = {
+  name: getPlayerName(),
+}
+//window.alert('Welcome to Robot Gladiators!  round ' = (i + 1));
+
+
 // You can also log multiple values at once like this
 console.log(playerName, playerAttack, playerHealth);
 
