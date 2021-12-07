@@ -1,8 +1,4 @@
-// Game States
-// "WIN" - Player robot has defeated all enemy-robots
-//      * Fight all enemy-robots
-//      * Defeat each enemy
-// 'LOSE" - Player robot's health is zero or less
+/* GAME FUNCTIONS */
 
 // function to generate a random numeric value
 var randomNumber = function(min, max) {
