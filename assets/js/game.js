@@ -43,7 +43,41 @@ console.log(enemyNames[0]);
 console.log(enemyNames[1]);
 console.log(enemyNames[2]);
 
+
 // fight function (now with parameter for enemy's name)
+var fightOrSkip = function () {
+  // ask player if they'd like to fight or skip using fightOrSkip function
+  var promptFight = window.prompt('Would you like to FIGHT or SKIP this battle? Enter "FIGHT" or "SKIP" to choose.');
+
+// repeat and execute as long as the enemy-robot is alive 
+while (playerInfo.health > 0 && enemy.health > 0) {
+  // ask player if they'd like to fight or skip using fightOrSkip function
+  if (fightOrSkip()) {
+    // if true, leave fight by breaking loop
+    break;
+  }
+  var damage = randomNumber(playerInfo.attack - 3, playerInfo.attack);
+  
+  promptFight = promptFight.toLowerCase();
+  // if player picks "skip" confirm and then stop the loop
+  if (promptFight === "skip") {
+    // confirm player wants to skip
+    var confirmSkip = window.confirm("Are you sure you'd like to quit?");
+
+   // if yes (true), leave fight
+   if (confirmSkip) {
+    window.alert(playerInfo.name + " has decided to skip this fight. Goodbye!");
+    // subtract money from playerMoney for skipping, but don't let them go into the negative
+    playerInfo.money = Math.max(0, playerInfo.money - 10);
+
+    // return true if player wants to leave
+    return true;
+  }
+      shop();
+    }
+  }
+  return false;
+}
 var fight = function(enemyName) {
   while (playerHealth > 0 && enemyHealth > 0) {
     // ask player if they'd like to fight or run
